@@ -21,4 +21,4 @@
         console.log(u.toJSON());
     })
 
-### U can see the [example]("./example")
+### U can see the [example]("example")
