@@ -1,24 +1,14 @@
 var ofc = require("../");
 
-var mongoose = require("mongoose");
-
-var conn = mongoose.createConnection("mongodb://127.0.0.1/o4c");
-
 ofc.start(__dirname+"\\logic");
 
-var UserClass = ofc.model("user");
+// ofc.service("user").register("iamee","hello");
 
-var User = new UserClass(conn);
+// ofc.service("user").login("iamee","hello",console.log);
 
-
-// User.on("save",function(){
-	// console.log("===heloo",arguments);
-// });
-
-User.create({ uname: "Hello", upass: "hello" },function(err,u){
-	if(err){
-		console.log(err.message);
-		console.log(err.stack);
+ofc.service("user").getUserInfo("iamee",function(err,user){
+	if(user){
+		console.log(user.toJSON());
 	}
-	console.log(u.toJSON());
 });
+

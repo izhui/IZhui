@@ -1,22 +1,32 @@
-module.exports.collection = "MyUser";
-module.exports.schema = {
-	uname: { type: String, index: true, required: true },
-	upass: { type: String, required: true },
-}
+var ObjectId = require("mongoose").Schema.ObjectId;
+var crypto = require("crypto");
 
-module.exports.before = {
-	save: function( next ){
-		this.upass = this.uname + ":" + Date.now();
-		next();
+module.exports = {
+	collection: "MyUser",
+	schema: {
+		uname : { type: String, index: true, required: true , unique: true  },
+		upass : { type: String, required: true },
+		detail: { type: ObjectId, ref : "user.detail" }
+	},
+	before: {
+		save : function( next ){
+			//保存，双重加密
+			this.upass =  crypto.createHash("md5").update(this.upass).digest("hex");
+			this.upass = crypto.createHash('sha256').update(this.upass).digest("base64");
+			next();
+		},
+		findOne : function( next ){
+			//筛选, 如果通过密码查找，自动加密
+			if(this._conditions["upass"]){
+				var pass = this._conditions["upass"];
+				pass = crypto.createHash("md5").update(pass).digest("hex")
+				this._conditions["upass"] = crypto.createHash('sha256').update(pass).digest("base64");
+			}
+			next();
+		}
+	},
+	toJSON: function(){
+		console.log(typeof(this.detail));
+		return { uname: this.uname, upass: this.upass , userid: this._id , detail: this.detail.toJSON ? this.detail.toJSON(): this.detail };
 	}
-}
-
-module.exports.after = {
-	save: function(){
-		console.log("after:save",arguments);
-	}
-}
-
-module.exports.toJSON = function(){
-	return { uname: this.uname, upass: this.upass , userid: this._id };
 }

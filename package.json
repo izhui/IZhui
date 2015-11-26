@@ -1,0 +1,25 @@
+{
+  "name": "izhui",
+  "version": "0.0.1",
+  "description": "izhui",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izhui/IZhui.git"
+  },
+  "keywords": [
+    "izhui"
+  ],
+  "author": "cava.zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/izhui/IZhui/issues"
+  },
+  "homepage": "https://github.com/izhui/IZhui#readme"
+}
