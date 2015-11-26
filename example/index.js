@@ -1,14 +1,25 @@
 var ofc = require("../");
 
-ofc.start(__dirname+"\\logic");
+var path = require("path");
 
-// ofc.service("user").register("iamee","hello");
+// ofc.start(__dirname+"\\logic");
+
+ofc.start(path.join(__dirname,"logic"));
+
+// ofc.service("user").register("iamee","hello",console.log);
 
 // ofc.service("user").login("iamee","hello",console.log);
 
-ofc.service("user").getUserInfo("iamee",function(err,user){
-	if(user){
-		console.log(user.toJSON());
-	}
-});
+// ofc.service("user").getUserInfo("iamee",function(err,user){
+	// if(user){
+		// console.log(user.toJSON());
+	// }
+// });
 
+setInterval(function(){
+    ofc.service("user").getUserInfo("iamee",function(err,user){
+        if(user){
+            console.log(user.toJSON());
+        }
+    });
+},1000);
