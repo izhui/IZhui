@@ -26,7 +26,6 @@ module.exports = {
 		}
 	},
 	toJSON: function(){
-		console.log(typeof(this.detail));
 		return { uname: this.uname, upass: this.upass , userid: this._id , detail: this.detail.toJSON ? this.detail.toJSON(): this.detail };
 	}
 }

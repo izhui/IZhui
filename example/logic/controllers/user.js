@@ -28,8 +28,8 @@ module.exports = {
 		this.User.findOne({ uname: uname, upass: upass }, callback );
 	},
 	getUserInfo: function( uname, callback ){
-		callback(null,{toJSON:function(){return "hello"}});
-		return;
+		// callback(null,{toJSON:function(){return "hello"}});
+		// return;
 		this.User.findOne({ uname: uname}).populate("detail").exec(callback);
 	}
 }
