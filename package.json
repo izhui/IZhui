@@ -1,6 +1,6 @@
 {
   "name": "izhui",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "izhui",
   "main": "index.js",
   "directories": {
@@ -21,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/izhui/IZhui/issues"
   },
-  "homepage": "https://github.com/izhui/IZhui#readme"
+  "homepage": "https://github.com/izhui/IZhui#readme",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "gaze": "^0.5.2",
+    "mkdirp": "^0.5.1",
+    "mongoose": "^4.2.8",
+    "osr-class": "^0.1.8",
+    "osr-utils": "0.0.3",
+    "promise": "^7.0.4",
+    "rd": "0.0.2"
+  }
 }
