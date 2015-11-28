@@ -9,9 +9,10 @@ ofc.start(__dirname+"\\logic");
 setInterval(function(){
 	
 	ofc.service("user").getUserInfo("iamee",function(err,user){
-		if(user){
-			console.log(user.toJSON());
-		}
+        console.log(err,user);
+		// if(user){
+			// // console.log(user.toJSON());
+		// }
 	});
 	
 },1000);

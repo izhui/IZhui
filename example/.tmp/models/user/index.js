@@ -25,7 +25,7 @@ module.exports = {
 			next();
 		}
 	},
-	toJSON: function(){
-		return { uname: this.uname, upass: this.upass , userid: this._id , detail: this.detail.toJSON ? this.detail.toJSON(): this.detail };
-	}
+	// toJSON: function(){
+		// return { uname: this.uname, upass: crypto.createHash("md5").update(this.upass).digest("hex") , userid: this._id , detail: this.detail.toJSON ? this.detail.toJSON(): this.detail };
+	// }
 }

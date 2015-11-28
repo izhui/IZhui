@@ -30,6 +30,6 @@ module.exports = {
 	getUserInfo: function( uname, callback ){
 		// callback(null,{toJSON:function(){return "hello"}});
 		// return;
-		this.User.findOne({ uname: uname}).populate("detail").exec(callback);
+		this.User.findOne({ uname: uname}).populate("detail").exec(this.User.toResult(callback));
 	}
 }
