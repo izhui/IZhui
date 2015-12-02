@@ -17,7 +17,7 @@ module.exports = {
 			// console.log("after:save",arguments);
 		// }
 	// },
-	// toJSON: function(){
-		// return { avatar: this.avatar, regtime: this.regtime, nickname: this.nickname };
-	// }
+	toJSON: function(){
+		return { avatar: this.avatar, regtime: this.regtime, nickname: this.nickname };
+	}
 }

@@ -28,7 +28,7 @@ module.exports = {
 		this.User.findOne({ uname: uname, upass: upass }, callback );
 	},
 	getUserInfo: function( uname, callback ){
-		// callback(null,{toJSON:function(){return "hello"}});
+		// callback(null,{toJSON:"云鹏HELLO"});
 		// return;
 		this.User.findOne({ uname: uname}).populate("detail").exec(this.User.toResult(callback));
 	}
